@@ -124,14 +124,14 @@ echo "$price 円の商品の税込み価格は $taxInPrice 円です。";
 function distinguishNum($num)
 {
     if ($num % 2 == 0) {
-        echo "$num は偶数です。\n";
+        return "$num は偶数です。\n";
     } else {
-        echo "$num は奇数です。\n";
+        return "$num は奇数です。\n";
     }
 }
 
-distinguishNum(11);
-distinguishNum(24);
+echo distinguishNum(11);
+echo distinguishNum(24);
 
 
 // Q13 関数とswitch文
@@ -140,23 +140,23 @@ function evaluateGrade($score)
     switch ($score) {
         case 'A':
         case 'B':
-            echo "合格です。\n";
+            return "合格です。\n";
             break;
         
         case 'C':
-            echo "合格ですが追加課題があります。\n";
+            return "合格ですが追加課題があります。\n";
             break;
         
         case 'D':
-            echo "不合格です。\n";
+            return "不合格です。\n";
             break;
         
         default:
-            echo "判定不明です。講師に問い合わせてください。\n";
+            return "判定不明です。講師に問い合わせてください。\n";
             break;
     }
 }
 
-evaluateGrade('A');
-evaluateGrade('N');
+echo evaluateGrade('A');
+echo evaluateGrade('N');
 ?>
