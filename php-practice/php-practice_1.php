@@ -69,9 +69,10 @@ $kanto = [
 ];
 
 foreach ($kanto as $city => $kencho) {
-  if ($city === '埼玉県') {
-      echo "$city の県庁所在地は、 $kencho です。";
-  }
+    if ($city === '埼玉県') {
+        echo "$city の県庁所在地は、 $kencho です。";
+        break; // レビュー時に追記 ※break入れないと7回実行される
+    }
 }
 
 
@@ -99,23 +100,25 @@ foreach ($kanto as $city => $kencho) {
 
 
 // Q10 関数-1
+// 定義
 function hello($name)
 {
     return "$name さん、こんにちは。\n";
 }
 
+// 実行
 echo hello('金谷');
 echo hello('安藤');
 
 
 // Q11 関数-2
-function calcTaxInPrice($price)
+function calcTaxInPrice($taxOutPrice) // 仮引数
 {
-    return $price * 1.1;
+    return $taxOutPrice * 1.1;
 }
 
 $price = 1000;
-$taxInPrice = calcTaxInPrice($price);
+$taxInPrice = calcTaxInPrice($price); // 実引数
 
 echo "$price 円の商品の税込み価格は $taxInPrice 円です。";
 
@@ -141,19 +144,20 @@ function evaluateGrade($score)
         case 'A':
         case 'B':
             return "合格です。\n";
-            break;
+            // echo "aaaa"; は表示されない
+            // break; はreturnを使うときは不要
         
         case 'C':
             return "合格ですが追加課題があります。\n";
-            break;
+            // break;
         
         case 'D':
             return "不合格です。\n";
-            break;
+            // break;
         
         default:
             return "判定不明です。講師に問い合わせてください。\n";
-            break;
+            // break;
     }
 }
 

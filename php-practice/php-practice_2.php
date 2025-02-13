@@ -42,6 +42,7 @@ foreach ($personalInfos as $key => $value) {
     echo $key + 1 . '番目の' . $value['name'] . 'のメールアドレスは' . $value['mail'] . 
     'で、電話番号は' . $value['tel'] . 'です。' . "\n";
 }
+// keyじゃなくてindexの方がわかりやすい
 
 // 問題3
 $ageList = [25, 30, 18];
@@ -49,6 +50,7 @@ $ageList = [25, 30, 18];
 foreach ($ageList as $key => $age) {
     $personalInfos[$key]['age'] = $age;
 }
+// keyじゃなくてindexの方がわかりやすい
 
 var_dump($personalInfos);
 
@@ -88,6 +90,12 @@ class Student
         $this->studentName = $name;
     }
 
+    // public function setProperty($id, $name)
+    // {
+    //     $this->studentId = $id;
+    //     $this->studentName = $name;
+    // }
+
     public function attend($class)
     {
         echo $this->studentName . 'は' . $class .
@@ -96,6 +104,7 @@ class Student
 }
 
 $yamada = new Student(120, '山田');
+// $yamada->setProperty(120, '山田');
 $yamada->attend('PHP');
 
 
@@ -106,7 +115,9 @@ date_default_timezone_set('Asia/Tokyo');
 $date = new DateTime();
 
 $date->modify('-1 month');
-echo $date->format('Y-m-d');
+echo $date->format('Y-m-d'); //まとめて書ける（メソッドチェーン）
+
+// echo $date->modify('-1 month')->format('Y-m-d');
 
 // 問題2
 date_default_timezone_set('Asia/Tokyo');
@@ -115,4 +126,7 @@ $origin = new DateTimeImmutable('1992-04-25');
 $target = new DateTimeImmutable();
 $interval = $origin->diff($target);
 echo 'あの日から' . $interval->format('%a') . '日経過しました。';
+
+// 118と119をまとめて書くと↓
+// echo 'あの日から' . $origin->diff($target)->format('%a') . '日経過しました。';
 ?>
